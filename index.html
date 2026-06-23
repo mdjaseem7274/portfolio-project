@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MD Jaseem- personal portfolio</title>
+    <title>MD Jaseem - Personal Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1> MD Jaseem</h1>
+        <!-- Week 3: Theme Toggle using Class Mechanism -->
+        <div style="text-align: right; padding: 10px;">
+            <button id="themeSwitcher" style="cursor: pointer; padding: 6px 12px;">🌓 Switch Theme</button>
+        </div>
+
+        <h1>MD Jaseem</h1>
         <p>Welcome to my personal portfolio website!</p>
         <nav>
             <ul>
@@ -23,15 +28,16 @@
     <hr>
 
     <main>
-
         <section id="about">
             <h2>About Me</h2>
             <img src="images/profile.jpg" alt="MD Jaseem's profile Picture" width="150">
             <p>
                 Hello! I am MD Jaseem a passionate learner currently exploring the world of web development. 
-                This website is my very first project built entirely using HTML5. I love exploring new technologies, 
-                working on creative ideas, and continuously upgrading my skills.
+                This website is my very first project built entirely using HTML5.
+                <!-- Week 3: Read More Text Hidden by Class -->
+                <span id="longBio" class="hidden-content"> I love exploring new technologies, working on creative ideas, and continuously upgrading my skills.</span>
             </p>
+            <button id="expandBioBtn" style="cursor: pointer;">Read More</button>
         </section>
 
         <hr>
@@ -53,20 +59,24 @@
             <h2>Contact Me</h2>
             <p>If you'd like to get in touch, please fill out the form below or reach out via email.</p>
             
-            <form action="#" method="POST">
+            <!-- Week 3: Form Validation -->
+            <form id="contactFormValidation" action="#" method="POST">
+                <!-- Validation error feedback box -->
+                <div id="validationFeedback" style="color: #dc2626; margin-bottom: 12px; font-weight: 500;"></div>
+
                 <div>
                     <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name">
                 </div>
                 <br>
                 <div>
                     <label for="email">Email:</label><br>
-                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address">
                 </div>
                 <br>
                 <div>
                     <label for="message">Message:</label><br>
-                    <textarea id="message" name="message" rows="5" cols="30" placeholder="Type your message here..." required></textarea>
+                    <textarea id="message" name="message" rows="5" cols="30" placeholder="Type your message here..."></textarea>
                 </div>
                 <br>
                 <div>
@@ -74,14 +84,15 @@
                 </div>
             </form>
         </section>
-
     </main>
 
     <hr>
 
     <footer>
-        <p>&copy; 2026  MD Jaseem. All Rights Reserved.</p>
+        <p>&copy; 2026 MD Jaseem. All Rights Reserved.</p>
     </footer>
 
+    <!-- JS Link -->
+    <script src="script.js"></script>
 </body>
 </html>

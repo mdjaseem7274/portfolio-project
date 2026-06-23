@@ -1,3 +1,6 @@
+/* ==========================================
+   1. GLOBAL STYLES & RESET
+   ========================================== */
 * {
     margin: 0;
     padding: 0;
@@ -9,10 +12,15 @@ body {
     background-color: #0f172a; /* Slate Dark Matte Background */
     color: #e2e8f0;            /* Premium Light Gray Text */
     line-height: 1.7;
+    /* Week 3: Smooth theme change animation */
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+/* ==========================================
+   2. HEADER & NAVIGATION (Deep Midnight Tech Gradient)
+   ========================================== */
 header {
-    background: linear-gradient(135deg, #020617 0%, #0f172a 100%); /* Deep Midnight Tech Gradient */
+    background: linear-gradient(135deg, #020617 0%, #0f172a 100%); 
     color: #ffffff;
     padding: 3.5rem 2rem;
     text-align: center;
@@ -75,6 +83,43 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
+/* ==========================================
+   WEEK 3 JAVASCRIPT CONTROLS (BUTTONS)
+   ========================================== */
+#themeSwitcher, #expandBioBtn {
+    border: 2px solid #38bdf8;
+    background-color: transparent;
+    color: #38bdf8;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#themeSwitcher:hover {
+    background-color: #38bdf8;
+    color: #0f172a;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+#expandBioBtn {
+    margin-top: 12px;
+}
+
+#expandBioBtn:hover {
+    background-color: #38bdf8;
+    color: #0f172a;
+}
+
+/* Hidden Content Reset for Read More */
+.hidden-content {
+    display: none;
+}
+
+/* ==========================================
+   3. MAIN CONTENT LAYOUT
+   ========================================== */
 main {
     max-width: 800px;
     margin: 3rem auto;
@@ -85,9 +130,9 @@ section {
     background: #1e293b; /* Dark Charcoal Cards */
     padding: 3rem;
     margin-bottom: 2.5rem;
-    border-radius: 20px; /* Kept your exact rounded corners */
+    border-radius: 20px; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease;
 }
 
 section:hover {
@@ -166,16 +211,96 @@ h2::after {
 }
 
 #skills ul li:hover {
-    background-color: #38bdf8; /* Turns solid neon blue on hover */
-    color: #0f172a;            /* Dark text on hover for premium contrast */
+    background-color: #38bdf8; 
+    color: #0f172a;            
     border-color: #38bdf8;
     transform: translateY(-2px);
+}
+
+/* Form Fields Styling */
+form div input, form div textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #0f172a;
+    color: #ffffff;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    margin-top: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+form div input:focus, form div textarea:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+form button[type="submit"] {
+    background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+    color: #020617;
+    padding: 12px 26px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
 }
 
 hr {
     display: none;
 }
 
+footer {
+    text-align: center;
+    padding: 2.5rem;
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* ==========================================
+   DYNAMIC LIGHT THEME ALTERATION (Class Triggered)
+   ========================================== */
+body.dark-mode-active {
+    background-color: #f1f5f9 !important; /* Elegant Light Metallic Grey */
+    color: #334155 !important;            /* Dark Charcoal Text */
+}
+
+body.dark-mode-active section {
+    background: #ffffff !important;       /* Clean White Cards */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.dark-mode-active h2 {
+    color: #0f172a !important;
+}
+
+body.dark-mode-active #about p {
+    color: #475569 !important;
+}
+
+body.dark-mode-active form div input, 
+body.dark-mode-active form div textarea {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+body.dark-mode-active #skills ul li {
+    background-color: #e2e8f0 !important;
+    color: #0284c7 !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+/* ==========================================
+   4. RESPONSIVE DESIGN (Media Queries)
+   ========================================== */
 @media (max-width: 600px) {
     header h1 {
         font-size: 2.2rem;
